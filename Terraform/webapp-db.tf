@@ -1,10 +1,10 @@
 resource "azurerm_resource_group" "rgroup" {
-  name     = "${var.resource-group-name}"
-  location = "${var.location}"
+  name     = "rgroup2806"
+  location = "West Europe"
 }
 
 resource "azurerm_app_service_plan" "plan" {
-  name                = "example-appserviceplan"
+  name                = "appserviceplan2506"
   location            = "${azurerm_resource_group.rgroup.location}"
   resource_group_name = "${azurerm_resource_group.rgroup.name}"
 
@@ -21,7 +21,7 @@ resource "azurerm_app_service" "app-service" {
   app_service_plan_id = "${azurerm_app_service_plan.plan.id}"
 
   site_config {
-    dotnet_framework_version = "v4.0"
+    dotnet_framework_version = "v4.8"
     scm_type                 = "LocalGit"
   }
 
@@ -37,7 +37,7 @@ resource "azurerm_app_service" "app-service" {
 }
 
 resource "azurerm_sql_server" "sqldb" {
-  name                         = "terraform-sqlserver"
+  name                         = "sqlserver2506"
   resource_group_name          = "${azurerm_resource_group.rgroup.name}"
   location                     = "${azurerm_resource_group.rgroup.location}"
   version                      = "12.0"
@@ -46,7 +46,7 @@ resource "azurerm_sql_server" "sqldb" {
 }
 
 resource "azurerm_sql_database" "db" {
-  name                = "db2506"
+  name                = "sqldb2506"
   resource_group_name = "${azurerm_resource_group.rgroup.name}"
   location            = "${azurerm_resource_group.rgroup.location}"
   server_name         = "${azurerm_sql_server.sqldb.name}"
