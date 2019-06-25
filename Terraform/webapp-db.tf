@@ -50,6 +50,11 @@ resource "azurerm_sql_database" "db" {
   resource_group_name = "${azurerm_resource_group.rgroup.name}"
   location            = "${azurerm_resource_group.rgroup.location}"
   server_name         = "${azurerm_sql_server.sqldb.name}"
+  edition                          = "Basic"
+  collation                        = "SQL_Latin1_General_CP1_CI_AS"
+  create_mode                      = "Default"
+  requested_service_objective_name = "Basic"
+
 
   tags = {
     environment = "production"
