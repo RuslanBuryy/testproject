@@ -15,7 +15,7 @@ resource "azurerm_app_service_plan" "plan" {
 }
 
 resource "azurerm_app_service" "app-service" {
-  name                = "${var.app-service-name}"
+  name                = "appservice2506"
   location            = "${azurerm_resource_group.rgroup.location}"
   resource_group_name = "${azurerm_resource_group.rgroup.name}"
   app_service_plan_id = "${azurerm_app_service_plan.plan.id}"
@@ -46,7 +46,7 @@ resource "azurerm_sql_server" "sqldb" {
 }
 
 resource "azurerm_sql_database" "db" {
-  name                = "terraform-sqldatabase"
+  name                = "db2506"
   resource_group_name = "${azurerm_resource_group.rgroup.name}"
   location            = "${azurerm_resource_group.rgroup.location}"
   server_name         = "${azurerm_sql_server.sqldb.name}"
