@@ -1,3 +1,7 @@
+terraform {
+  backend          "azurerm"        {}
+}
+
 resource "azurerm_resource_group" "rgroup" {
   name     = "rgroup2606"
   location = "West Europe"
