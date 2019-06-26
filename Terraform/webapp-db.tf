@@ -1,10 +1,10 @@
 resource "azurerm_resource_group" "rgroup" {
-  name     = "rgroup2806"
+  name     = "rgroup2606"
   location = "West Europe"
 }
 
 resource "azurerm_app_service_plan" "plan" {
-  name                = "appserviceplan2506"
+  name                = "appserviceplan2606"
   location            = "${azurerm_resource_group.rgroup.location}"
   resource_group_name = "${azurerm_resource_group.rgroup.name}"
 
@@ -15,7 +15,7 @@ resource "azurerm_app_service_plan" "plan" {
 }
 
 resource "azurerm_app_service" "app-service" {
-  name                = "appservice2506"
+  name                = "appservice2606"
   location            = "${azurerm_resource_group.rgroup.location}"
   resource_group_name = "${azurerm_resource_group.rgroup.name}"
   app_service_plan_id = "${azurerm_app_service_plan.plan.id}"
@@ -37,7 +37,7 @@ resource "azurerm_app_service" "app-service" {
 }
 
 resource "azurerm_sql_server" "sqldb" {
-  name                         = "sqlserver2506"
+  name                         = "sqlserver2606"
   resource_group_name          = "${azurerm_resource_group.rgroup.name}"
   location                     = "${azurerm_resource_group.rgroup.location}"
   version                      = "12.0"
@@ -46,7 +46,7 @@ resource "azurerm_sql_server" "sqldb" {
 }
 
 resource "azurerm_sql_database" "db" {
-  name                = "sqldb2506"
+  name                = "sqldb2606"
   resource_group_name = "${azurerm_resource_group.rgroup.name}"
   location            = "${azurerm_resource_group.rgroup.location}"
   server_name         = "${azurerm_sql_server.sqldb.name}"
