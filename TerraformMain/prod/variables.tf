@@ -12,12 +12,13 @@ variable "location" {
   default = "West Europe"
   description = "The Azure location where all resources in this example should be created"
 }
+
 variable "server_name" {
-  default = "serverprod"
+  default = "serverprod2606"
   description = "Name of the server. "
 }
 
 variable "database_name" {
-  default = "dbprod"
+  default = "dbprod2606"
   description = "Name on the initial database on the server. "
 }
