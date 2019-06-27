@@ -14,11 +14,11 @@ variable "location" {
 }
 
 variable "server_name" {
-  default = "serverpp"
+  default = "serverpp2606"
   description = "Name of the server. "
 }
 
 variable "database_name" {
-  default = "dbpp"
+  default = "dbpp2606"
   description = "Name on the initial database on the server. "
 }
