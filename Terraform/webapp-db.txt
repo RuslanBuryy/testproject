@@ -3,8 +3,8 @@ terraform {
 }
 
 resource "azurerm_resource_group" "rgroup" {
-  name     = "rgroup2606"
-  location = "West Europe"
+  name     = "${var.resource-group-name}"
+  location = "${var.location}"
 }
 
 resource "azurerm_app_service_plan" "plan" {
@@ -19,7 +19,7 @@ resource "azurerm_app_service_plan" "plan" {
 }
 
 resource "azurerm_app_service" "app-service" {
-  name                = "appservice2606"
+  name                = "${var.app-service-name}"
   location            = "${azurerm_resource_group.rgroup.location}"
   resource_group_name = "${azurerm_resource_group.rgroup.name}"
   app_service_plan_id = "${azurerm_app_service_plan.plan.id}"
@@ -61,6 +61,6 @@ resource "azurerm_sql_database" "db" {
 
 
   tags = {
-    environment = "production"
+    environment = "PullToMaster"
   }
 }
