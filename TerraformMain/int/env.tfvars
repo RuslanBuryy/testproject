@@ -14,11 +14,11 @@ variable "location" {
 }
 
 variable "server_name" {
-  default = "intserver"
+  default = "serverint"
   description = "Name of the server. "
 }
 
 variable "database_name" {
-  default = "intdb"
+  default = "dbint"
   description = "Name on the initial database on the server. "
 }
