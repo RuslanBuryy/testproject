@@ -37,16 +37,16 @@ resource "azurerm_app_service" "test" {
 }
 
 resource "azurerm_sql_server" "test" {
-  name                         = "sqlserver2606"
+  name                         = "sqlservertomaster"
   resource_group_name          = "${azurerm_resource_group.test.name}"
   location                     = "${azurerm_resource_group.test.location}"
   version                      = "12.0"
   administrator_login          = "ruslan"
-  administrator_login_password = "pasword54321"
+  administrator_login_password = "devops2606"
 }
 
 resource "azurerm_sql_database" "test" {
-  name                = "sqldatabase2606"
+  name                = "sqldatabasetomaster"
   resource_group_name = "${azurerm_resource_group.test.name}"
   location            = "${azurerm_resource_group.test.location}"
   server_name         = "${azurerm_sql_server.test.name}"
