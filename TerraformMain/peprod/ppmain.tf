@@ -41,7 +41,7 @@ resource "azurerm_app_service" "pp" {
 }
 
 resource "azurerm_sql_server" "pp" {
-  name                         = "serverpp"
+  name                         = "${var.server_name}"
   resource_group_name          = "${azurerm_resource_group.pp.name}"
   location                     = "${azurerm_resource_group.pp.location}"
   version                      = "12.0"
