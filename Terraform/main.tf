@@ -45,6 +45,16 @@ resource "azurerm_sql_server" "sqldb" {
   administrator_login_password = "Jfeqzvgq521"
 }
 
+resource "azurerm_sql_firewall_rule" "sql_firewall" {
+  count = "${var.allow_azure_ip_access ? 1 : 0}"
+
+  name                = "AllowAccessToAzure"
+  resource_group_name = "$${azurerm_resource_group.rg.name}"
+  server_name         = "${azurerm_sql_server.sqldb.name}"
+  start_ip_address    = "0.0.0.0"
+  end_ip_address      = "165.225.84.99"
+}
+
 resource "azurerm_sql_database" "db" {
   name                = "terraform-sqldatabase"
   resource_group_name = "${azurerm_resource_group.rg.name}"
@@ -56,6 +66,6 @@ resource "azurerm_sql_database" "db" {
   requested_service_objective_name = "Basic"
 
   tags = {
-    environment = "production"
+    environment = "PullToMaster"
   }
 }
