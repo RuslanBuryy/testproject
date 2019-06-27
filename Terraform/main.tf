@@ -42,7 +42,7 @@ resource "azurerm_sql_server" "test" {
   location                     = "${azurerm_resource_group.test.location}"
   version                      = "12.0"
   administrator_login          = "ruslan"
-  administrator_login_password = "devops2606"
+  administrator_login_password = "Devops2606"
 }
 
 resource "azurerm_sql_database" "test" {
