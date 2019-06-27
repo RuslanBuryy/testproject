@@ -60,6 +60,6 @@ resource "azurerm_sql_database" "test" {
   requested_service_objective_name = "Basic"
 
   tags = {
-    environment = "ToMaster"
+    environment = "PreProd"
   }
 }
