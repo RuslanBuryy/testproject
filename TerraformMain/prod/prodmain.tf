@@ -8,7 +8,7 @@ resource "azurerm_resource_group" "prod" {
 }
 
 resource "azurerm_app_service_plan" "prod" {
-  name                = "prod-aprodserviceplan"
+  name                = "prod-appserviceplan"
   location            = "${azurerm_resource_group.prod.location}"
   resource_group_name = "${azurerm_resource_group.prod.name}"
 
@@ -19,17 +19,17 @@ resource "azurerm_app_service_plan" "prod" {
 }
 
 resource "azurerm_app_service" "prod" {
-  name                = "${var.aprod-service-name}"
+  name                = "${var.app-service-name}"
   location            = "${azurerm_resource_group.prod.location}"
   resource_group_name = "${azurerm_resource_group.prod.name}"
-  aprod_service_plan_id = "${azurerm_aprod_service_plan.prod.id}"
+  app_service_plan_id = "${azurerm_app_service_plan.prod.id}"
 
   site_config {
     dotnet_framework_version = "v4.0"
     scm_type                 = "LocalGit"
   }
 
-  aprod_settings = {
+  app_settings = {
     "SOME_KEY" = "some-value"
   }
 
@@ -60,6 +60,6 @@ resource "azurerm_sql_database" "prod" {
   requested_service_objective_name = "Basic"
 
   tags = {
-    environment = "prodaction"
+    environment = "prodegration"
   }
 }
