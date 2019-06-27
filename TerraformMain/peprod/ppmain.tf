@@ -46,7 +46,7 @@ resource "azurerm_sql_server" "pp" {
   location                     = "${azurerm_resource_group.pp.location}"
   version                      = "12.0"
   administrator_login          = "ruslan"
-  administrator_login_password = "Devops2606"
+  administrator_login_password = "Devops2707"
 }
 
 resource "azurerm_sql_database" "pp" {
@@ -60,6 +60,6 @@ resource "azurerm_sql_database" "pp" {
   requested_service_objective_name = "Basic"
 
   tags = {
-    environment = "PreProd"
+    environment = "preprod"
   }
 }
