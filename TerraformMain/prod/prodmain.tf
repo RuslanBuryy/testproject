@@ -7,7 +7,7 @@ resource "azurerm_resource_group" "prod" {
   location = "${var.location}"
 }
 
-resource "azurerm_aprod_service_plan" "prod" {
+resource "azurerm_app_service_plan" "prod" {
   name                = "prod-aprodserviceplan"
   location            = "${azurerm_resource_group.prod.location}"
   resource_group_name = "${azurerm_resource_group.prod.name}"
@@ -18,7 +18,7 @@ resource "azurerm_aprod_service_plan" "prod" {
   }
 }
 
-resource "azurerm_aprod_service" "prod" {
+resource "azurerm_app_service" "prod" {
   name                = "${var.aprod-service-name}"
   location            = "${azurerm_resource_group.prod.location}"
   resource_group_name = "${azurerm_resource_group.prod.name}"
