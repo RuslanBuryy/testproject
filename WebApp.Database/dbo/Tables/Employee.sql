@@ -5,5 +5,6 @@ CREATE TABLE [dbo].[Employee] (
     [Email]		 NVARCHAR (50)  NULL, 
 	[Phone]		 NVARCHAR (50)  NULL, 
 	[Address]	 NVARCHAR (50)  NULL,
+	[test]	         NVARCHAR (50)  NULL,
     CONSTRAINT [PK_Employee] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
